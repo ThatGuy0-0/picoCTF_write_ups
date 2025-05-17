@@ -24,16 +24,15 @@ Instead of analyzing the PCAP file with Wireshark, we can take a more efficient 
 Extract readable strings from the PCAP file:
 
 
-strings traffic.pcap > output.txt
-Inspect the output.txt file and look for suspicious Base64-encoded strings. These often consist of random-looking alphanumeric characters, possibly ending with = or ==.
+strings traffic.pcap | grep "=="
 
-Collect all the Base64 strings, piece them together in the correct order. The structure of the packet timing might help you figure out the sequence if it’s not immediately obvious.
+There are some base64 strings which can be decoded.
 
-Decode the full Base64 string:
+Decode each base64 string:
 
 
-echo "combined_base64_string" | base64 -d
-You should now see the flag in the format:
+echo "base64_string" | base64 -d
+You should be able to piece the strings into the flag format:
 
 
 picoCTF{your_flag_here}
