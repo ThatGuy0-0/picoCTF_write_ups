@@ -31,7 +31,8 @@ There are some base64 strings which can be decoded.
 Decode each base64 string:
 
 
-echo "base64_string" | base64 -d
+echo "base64_string" | base64 -d.
+
 You should be able to piece the strings into the flag format:
 
 
